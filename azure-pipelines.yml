@@ -7,7 +7,7 @@ pool:
 variables:
   subscription: Pay-As-You-Go(1)(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)
   resourceGroup: tfstate-rg
-  storageAccount: nagclkterraformtfstate
+  storageAccount: nagtestterraformtfstate
   container: tfstate
   tfstateFile: terraform.tfstate
   anyTfChanges: false
