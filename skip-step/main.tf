@@ -9,7 +9,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "rg" {
-  name     = "tfstate-rg"
-  location = "southindia"
-}
+##resource "azurerm_resource_group" "rg" {
+  #name     = "tfstate-rg"
+ # location = "southindia"
+#}
