@@ -14,25 +14,25 @@ variables:
 
 steps:
 
-- task: TerraformInstaller@0
+- task: TerraformInstaller@1
   displayName: install Terraform v1.12.2
   inputs:
     terraformVersion: '1.12.2'
 
 
-- task: TerraformTaskV2@2
+- task: TerraformTask@5
   displayName: terraform init
   inputs:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
-    backendServiceArm: 'Pay-As-You-Go(1)(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)'
+    backendServiceArm: '$(subscription)'
     backendAzureRmResourceGroupName: '$(resourceGroup)'
     backendAzureRmStorageAccountName: '$(storageAccount)'
     backendAzureRmContainerName: '$(container)'
     backendAzureRmKey: '$(tfstateFile)'
 
-- task: TerraformTaskV2@2
+- task: TerraformTask@5
   displayName: terraform plan -out=tfplan
   inputs:
     provider: 'azurerm'
@@ -61,7 +61,7 @@ steps:
         Write-Host "There is no change detected in Terraform tfplan file"
       }
 
-- task: TerraformTaskV2@2
+- task: TerraformTask@5
   displayName: terraform apply tfplan
   condition: eq(variables.anyTfChanges, true)
   inputs:
