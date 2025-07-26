@@ -2,7 +2,7 @@
 # - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 
 variables:
   subscription: Pay-As-You-Go(1)(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)
