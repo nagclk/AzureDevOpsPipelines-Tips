@@ -2,7 +2,7 @@
 # - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
   subscription: Pay-As-You-Go(1)(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)
@@ -19,13 +19,14 @@ steps:
   inputs:
     terraformVersion: '1.12.2'
 
+
 - task: TerraformTaskV1@0
   displayName: terraform init
   inputs:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
-    backendServiceArm: 'Nag-Azure-Connect'
+    backendServiceArm: 'Pay-As-You-Go(1)(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)'
     backendAzureRmResourceGroupName: '$(resourceGroup)'
     backendAzureRmStorageAccountName: '$(storageAccount)'
     backendAzureRmContainerName: '$(container)'
