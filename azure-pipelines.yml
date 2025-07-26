@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  subscription: Pay-As-You-Go(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)
+  subscription: Pay-As-You-Go(1)(66bc95b7-5c49-4ea6-abcc-38ae21688cf2)
   resourceGroup: tfstate-rg
   storageAccount: nagclkterraformtfstate
   container: tfstate
@@ -25,7 +25,7 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
-    backendServiceArm: '$(subscription)'
+    backendServiceArm: 'Nag-Azure-Connect'
     backendAzureRmResourceGroupName: '$(resourceGroup)'
     backendAzureRmStorageAccountName: '$(storageAccount)'
     backendAzureRmContainerName: '$(container)'
@@ -38,7 +38,6 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/skip-step'
     commandOptions: '-out=tfplan'
-    # commandOptions: '-detailed-exitcode -out=tfplan'
     environmentServiceNameAzureRM: '$(subscription)'
 
 - task: PowerShell@2
