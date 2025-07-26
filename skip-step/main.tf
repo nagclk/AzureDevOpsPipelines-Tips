@@ -10,6 +10,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "tfstate-rg"
+  name     = "tfstate-rg-1"
   location = "southindia"
 }
