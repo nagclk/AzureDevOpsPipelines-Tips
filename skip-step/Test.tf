@@ -2,7 +2,7 @@
 
 
 resource "azurerm_resource_group" "RG-Terraform" {
-  name     = "test-rg"
+  name     = "test-rg-renamed"
   location = "south india"
 }
 
@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "RG-Terraform" {
 }
 
  resource "azurerm_storage_account" "blob" {
-  name                     = "storagerenamed"
+  name                     = "storagerenamedsecond"
   resource_group_name      = azurerm_resource_group.RG-Terraform.name
   location                 = azurerm_resource_group.RG-Terraform.location
   account_tier             = "Standard"
