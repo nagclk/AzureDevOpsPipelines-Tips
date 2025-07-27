@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "RG-Terraform" {
 }
 
  resource "azurerm_storage_account" "blob" {
-  name                     = "testrgterraformtfstate"
+  name                     = "storagerenamed"
   resource_group_name      = azurerm_resource_group.RG-Terraform.name
   location                 = azurerm_resource_group.RG-Terraform.location
   account_tier             = "Standard"
