@@ -1,28 +1,5 @@
 #added a comment
-terraform {
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "4.37.0"
-    }
-  }
-}
 
-# Configure the Microsoft Azure Provider
-provider "azurerm" {
-  subscription_id = "66bc95b7-5c49-4ea6-abcc-38ae21688cf2"
-   features {
-    # Example: Customizing Key Vault behavior
-    key_vault {
-      purge_soft_delete_on_destroy = true
-    }
-
-    # Example: Customizing Virtual Machine behavior
-    virtual_machine_scale_set {
-      force_delete = true
-    }
-  }
-}
 
 resource "azurerm_resource_group" "RG-Terraform" {
   name     = "test-rg"
