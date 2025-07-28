@@ -18,7 +18,9 @@ steps:
   displayName: install Terraform v1.12.2
   inputs:
     terraformVersion: '1.12.2'
-
+      
+- script: 
+  ls $(System.DefaultWorkingDirectory)
 
 - task: TerraformTask@5
   displayName: terraform init
